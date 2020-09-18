@@ -23,6 +23,7 @@ const ModalOverlay = props => {
     )
     return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
 }
+
 const Modal = props => {
     return <React.Fragment>
         {props.show && <Backdrop onClick={props.onCancel} />}

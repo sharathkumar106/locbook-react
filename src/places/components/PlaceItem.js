@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+
 import Card from '../../shared/components/UIElements/Card';
 import Button from '../../shared/components/FormElements/Button';
-
+import Modal from '../../shared/components/UIElements/Modal';
+import Map from '../../shared/components/UIElements/Map';
 
 import './PlaceItem.css';
-import Modal from '../../shared/components/UIElements/Modal';
 
 const PlaceItem = props => {
 
@@ -15,7 +16,7 @@ const PlaceItem = props => {
     const closeMapHandler = () => setShowMap(false);
 
     return (
-        <React.Fragment>
+        <Fragment>
             <Modal
                 show={showMap}
                 onCancel={closeMapHandler}
@@ -25,7 +26,7 @@ const PlaceItem = props => {
                 footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
             >
                 <div className="map-container">
-                    <h2>THE MAP!</h2>
+                    <Map center={props.coordinates} container="map"/>
                 </div>
             </Modal>
 
@@ -46,7 +47,7 @@ const PlaceItem = props => {
                     </div>
                 </Card>
             </li>
-        </React.Fragment>
+        </Fragment>
     )
 };
 

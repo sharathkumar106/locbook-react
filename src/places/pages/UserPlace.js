@@ -10,8 +10,8 @@ const DUMMY_PLACES = [
         imageURL: 'https://lh5.googleusercontent.com/p/AF1QipOUyj7983L9cDPGUUsm_c1-KWrR2B80LhxOfBQZ=w433-h240-k-no',
         address: '20 W 34th St, New York, NY 10001, United States',
         location: {
-            lat: 40.752736,
-            lng: -73.9845379
+            lng: -73.98,
+            lat: 40.75
         },
         creator: 'u1'
     },
@@ -22,8 +22,8 @@ const DUMMY_PLACES = [
         imageURL: 'https://lh5.googleusercontent.com/p/AF1QipOUyj7983L9cDPGUUsm_c1-KWrR2B80LhxOfBQZ=w433-h240-k-no',
         address: '20 W 34th St, New York, NY 10001, United States',
         location: {
-            lat: 40.752736,
-            lng: -73.9845379
+            lng: -73.9845379,
+            lat: 40.752736
         },
         creator: 'u2'
     }
