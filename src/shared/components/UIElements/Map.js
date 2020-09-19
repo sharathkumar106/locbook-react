@@ -11,7 +11,7 @@ const Map = props => {
         const map = new mapboxgl.Map({
             container: mapRef.current,
             style: 'mapbox://styles/mapbox/navigation-preview-night-v4', // stylesheet location
-            center: [0,0], // starting position [lng, lat]
+            center: center, // starting position [lng, lat]
             zoom: 18 // starting zoom
         });
         map.addControl(new mapboxgl.NavigationControl());
