@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+import Button from '../../shared/components/FormElements/Button';
 import Card from '../../shared/components/UIElements/Card';
 import PlaceItem from './PlaceItem';
+
 import './PlaceList.css';
 
 const PlaceList = props => {
@@ -11,7 +12,7 @@ const PlaceList = props => {
             <div className="place-list center">
                 <Card className="card-white">
                     <h2>No places found. Maybe create one?</h2>
-                    <Link to="/places/new">Share Place</Link>
+                    <Button to="/places/new">Share Place</Button>
                 </Card>
             </div>
         )
