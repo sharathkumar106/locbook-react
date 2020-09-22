@@ -40,7 +40,7 @@ const PlaceItem = props => {
                 footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
             >
                 <div className="map-container">
-                    <Map center={props.coordinates} zoom={15} />
+                    <Map center={props.coordinates} title={props.title} icon={props.image} />
                 </div>
             </Modal>
 

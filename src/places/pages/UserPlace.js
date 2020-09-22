@@ -26,6 +26,18 @@ const DUMMY_PLACES = [
             lat: 40.752736
         },
         creator: 'u2'
+    },
+    {
+        id: 'p3',
+        title: "New York Stock Exchange",
+        description: "Where the money lives!",
+        imageURL: "https://lh5.googleusercontent.com/p/AF1QipNQAI0pbRgTkSWO_nev3j05RyEIWBYj3OYFmYTA=w408-h306-k-no",
+        address: "11 Wall St, New York, NY 10005, United States",
+        location: {
+            lat: 40.706877,
+            lng: -74.0112654
+        },
+        creator: "u3"
     }
 
 ]
