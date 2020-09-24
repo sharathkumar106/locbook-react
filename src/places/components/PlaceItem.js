@@ -7,10 +7,14 @@ import Map from '../../shared/components/UIElements/Map';
 
 import './PlaceItem.css';
 import { AuthContext } from '../../shared/context/AuthContext';
+import { useHttpClient } from '../../shared/hooks/http-hook';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 const PlaceItem = props => {
 
     const auth = useContext(AuthContext);
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
     const [showMap, setShowMap] = useState(false);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -24,13 +28,17 @@ const PlaceItem = props => {
 
     const closeDeleteWarningHandler = () => setShowConfirmModal(false);
 
-    const confirmDeleteHandler = () => {
+    const confirmDeleteHandler = async () => {
         setShowConfirmModal(false);
-        console.log("DELETING...");
+        try {
+            await sendRequest(`http://localhost:5000/api/places/${props.id}`, 'DELETE');
+            props.onDelete(props.id);
+        } catch (error) { };
     }
 
     return (
         <Fragment>
+            <ErrorModal error={error} onClear={clearError} />
             <Modal
                 show={showMap}
                 onCancel={closeMapHandler}
@@ -40,7 +48,7 @@ const PlaceItem = props => {
                 footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
             >
                 <div className="map-container">
-                    <Map center={props.coordinates} title={props.title} icon={props.image} />
+                    <Map center={props.coordinates} title={props.title} icon="https://img.favpng.com/12/5/19/earth-globe-icon-png-favpng-158Cm0TE9AfghUukUATwiVVdT.jpg" />
                 </div>
             </Modal>
 
@@ -63,8 +71,9 @@ const PlaceItem = props => {
 
             <li className="place-item">
                 <Card className="place-item__content">
+                    {isLoading && <LoadingSpinner asOverlay />}
                     <div className="place-item__image">
-                        <img src={props.image} alt={props.title} />
+                        <img src={`http://localhost:5000/${props.image}`} alt={props.title} />
                     </div>
                     <div className="place-item__info">
                         <h2>{props.title}</h2>
@@ -73,10 +82,10 @@ const PlaceItem = props => {
                     </div>
                     <div className="place-item__actions">
                         <Button inverse onClick={openMapHandler}>VIEW ON MAP</Button>
-                        {auth.isLoggedIn &&
+                        {auth.userId === props.creatorID &&
                             <Button to={`/places/${props.id}`}>EDIT</Button>
                         }
-                        {auth.isLoggedIn &&
+                        {auth.userId === props.creatorID &&
                             <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>
                         }
                     </div>

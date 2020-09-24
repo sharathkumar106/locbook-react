@@ -7,6 +7,8 @@
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 8px;
+    font-size: 1.5rem;
+
   }
   
   .modal__header {
@@ -22,7 +24,7 @@
   }
   
   .modal__content {
-    padding: 1rem 0.5rem;
+    padding: 1rem 1rem;
   }
   
   .modal__footer {

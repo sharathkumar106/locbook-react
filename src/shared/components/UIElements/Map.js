@@ -36,7 +36,7 @@ const Map = props => {
             container: 'map',
             style: 'tomtom://raster/1/basic-main',
             center: center,
-            zoom: 15
+            zoom: 14
         });
 
         map.addControl(new tt.FullscreenControl());

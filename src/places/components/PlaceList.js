@@ -7,7 +7,7 @@ import PlaceItem from './PlaceItem';
 import './PlaceList.css';
 
 const PlaceList = props => {
-    if (props.items.length === 0) {
+    if (!props.items) {
         return (
             <div className="place-list center">
                 <Card className="card-white">
@@ -24,13 +24,15 @@ const PlaceList = props => {
                 <PlaceItem
                     key={place.id}
                     id={place.id}
-                    image={place.imageURL}
+                    image={place.image}
                     title={place.title}
                     description={place.description}
                     address={place.address}
                     creatorID={place.creator}
-                    coordinates={place.location} />)
-                )
+                    coordinates={place.location}
+                    onDelete={props.onDeletePlace}
+                />
+            ))
             }
         </ul>
     )
