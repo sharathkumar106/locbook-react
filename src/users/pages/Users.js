@@ -6,15 +6,15 @@ import UsersList from '../components/UsersList';
 
 const Users = () => {
 
-  const { isLoading, error, sendRequest, clearError} = useHttpClient();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedUsers, setLoadedUsers] = useState();
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const responseData = await sendRequest('http://localhost:5000/api/users');
+        const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + '/users');
         setLoadedUsers(responseData.users);
-      } catch (error) {}
+      } catch (error) { }
     }
     fetchUsers();
   }, [sendRequest]);
@@ -23,9 +23,9 @@ const Users = () => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       { isLoading && <div className="center">
-        <LoadingSpinner className="white-loader"/>
+        <LoadingSpinner className="white-loader" />
       </div>}
-      { !isLoading && loadedUsers && <UsersList items={loadedUsers} /> }
+      { !isLoading && loadedUsers && <UsersList items={loadedUsers} />}
     </React.Fragment>
 
   );

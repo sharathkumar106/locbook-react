@@ -1,6 +1,7 @@
 {
-  "name": "mern-project",
-  "version": "0.1.0",
+  "name": "locbook-project",
+  "version": "1.0.0",
+  "description": "Share your favourite locations with everyone and explore the world in a better way. Powered by 'White Microphone'",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -19,6 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "author": "Sharath",
+  "license": "ISC",
   "eslintConfig": {
     "extends": "react-app"
   },
