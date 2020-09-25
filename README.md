@@ -1,15 +1,15 @@
 # LocBook - Facebook for Loactions
 
-A complete Location Sharer app build using MERN stack.
+### A complete Location Sharer app built using MERN stack.
 ---------------------------------------------------------------------------------------------
-Share your favourite locations with everyone and explore the world in a better way.
+### Share your favourite locations with everyone and explore the world in a better way.
 ---------------------------------------------------------------------------------------------
 
 # LIVE PREVIEW
 https://locbook-wm.netlify.app
 
-## Backend server hosted on Heroku
-## Database implemented in MongoDB Atlas
+### Backend server hosted on Heroku
+### Database implemented in MongoDB Atlas
 
 # Features
 1. Signup / Login
