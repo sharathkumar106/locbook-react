@@ -62,8 +62,6 @@ const Authenticate = props => {
     const onAuthenticatonHandler = async event => {
         event.preventDefault();
 
-        console.log(formState.inputs);
-
         if (isLoginMode) {
             try {
                 const responseData = await sendRequest('http://localhost:5000/api/users/login', 'POST',
@@ -75,7 +73,7 @@ const Authenticate = props => {
                         'Content-Type': 'application/json'
                     }
                 );
-                auth.login(responseData.user.id);
+                auth.login(responseData.userId, responseData.token);
             } catch (error) { }
         } else {
             try {
@@ -90,7 +88,7 @@ const Authenticate = props => {
                     formData
                 );
 
-                auth.login(responseData.user.id);
+                auth.login(responseData.userId, responseData.token);
             } catch (error) { }
         }
     }

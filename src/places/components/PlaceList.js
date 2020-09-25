@@ -36,6 +36,7 @@ const PlaceList = props => {
             }
         </ul>
     )
+
 };
 
 export default PlaceList;

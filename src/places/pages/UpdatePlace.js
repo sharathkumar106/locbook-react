@@ -35,19 +35,23 @@ const UpdatePlace = props => {
 
     useEffect(() => {
         const fetchPlace = async () => {
-            const responseData = await sendRequest(`http://localhost:5000/api/places/${placeId}`);
-            setLoadedPlace(responseData.place);
+            try {
+                const responseData = await sendRequest(`http://localhost:5000/api/places/${placeId}`);
+                setLoadedPlace(responseData.place);
 
-            setFormData({
-                title: {
-                    value: responseData.place.title,
-                    isValid: true
-                },
-                description: {
-                    value: responseData.place.description,
-                    isValid: true
-                }
-            }, true);
+                setFormData({
+                    title: {
+                        value: responseData.place.title,
+                        isValid: true
+                    },
+                    description: {
+                        value: responseData.place.description,
+                        isValid: true
+                    }
+                }, true);
+            } catch (error) {
+                setLoadedPlace(null);
+            }
         }
         fetchPlace();
     }, [sendRequest, placeId, setFormData]);
@@ -56,13 +60,14 @@ const UpdatePlace = props => {
     const placeUpdateSubmitHandler = async event => {
         event.preventDefault();
         try {
-            await sendRequest(`http://localhost:5000/api/places/${auth.userId}/${placeId}`, 'PATCH',
+            await sendRequest(`http://localhost:5000/api/places/${placeId}`, 'PATCH',
                 JSON.stringify({
                     title: formState.inputs.title.value,
                     description: formState.inputs.description.value
                 }),
                 {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token
                 }
             );
             history.push(`/${auth.userId}/places`)
