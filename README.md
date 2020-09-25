@@ -1,9 +1,9 @@
 # LocBook - Facebook for Loactions
 
 A complete Location Sharer app build using MERN stack.
-## ---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 Share your favourite locations with everyone and explore the world in a better way.
-## ---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 
 # LIVE PREVIEW
 https://locbook-wm.netlify.app
